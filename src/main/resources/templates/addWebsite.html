@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Website</title>
+</head>
+<body>
+  <form action="/website/add" th:method="post" th:action="@{addWebsite}"
+        th:object="${website}">
+    <label for="websiteName" id="websiteNameLabel">Website name:</label>
+    <input type="text" id="websiteName" required th:field="*{name}"/> <br>
+    <label for="websiteUrl" id="websiteUrlLabel">Website URL:</label>
+    <input type="url" id="websiteUrl" required th:field="*{url}"/> <br>
+    <label for="serverUrl" id="serverUrlLabel">Deploy URL:</label>
+    <input type="url" id="serverUrl" required th:field="*{server.url}"/> <br> <br>
+    <label for="serverType" id="serverTypeLabel">Type:</label>
+    <select name="serverType" id="serverType" th:field="*{server.serverType}">
+      <option value="FTP">FTP</option>
+      <option value="GIT">GIT</option>
+    </select> <br>
+    <label for="serverLogin" id="serverLoginLabel" th:field="*{server.login}">Login:</label>
+    <input type="text" id="serverLogin"/> <br>
+    <label for="serverPassword" id="serverPasswordLabel" th:field="*{server.label}">Senha:</label>
+    <input type="password" id="serverPassword" th:field="*{server.password}"/>
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
